@@ -26,11 +26,21 @@ The historical output SHA-256 is:
 
 The reference CSV and official images/annotations are not redistributed. The inference program never reads a reference CSV. [provenance/reference.json](provenance/reference.json) and [provenance/historical-v23-report.json](provenance/historical-v23-report.json) preserve the output identity and historical results.
 
+## GPU verification
+
+A fresh Kaggle run on two Tesla T4 GPUs strictly loaded all ten checkpoints, passed the synthetic shape checks, installed all nine pinned inference packages, and completed prediction for 180 images: 1,173 instances and one consensus fallback. Its single-variant inference took approximately 34.9 minutes. No fresh leaderboard submission or score was produced.
+
+The output SHA-256 was `5db0a2f4cf3d07c438b83ef4de7ffa5547a862a891a0ac0ef908ab9f493e4b75`, which differs from the unchanged historical reference above. The instance identifiers, their order and every image's instance count match. Of 1,173 masks, 1,104 are pixel-identical and 69 differ, with 577 differing instance pixels in total. Mean matched-mask IoU is 0.99976548; minimum IoU is 0.86311. Most changed masks differ by one pixel, while four differ by 21, 65, 90 and 331 pixels.
+
+Line endings, BOM and row ordering do not explain the mismatch. The cause remains unisolated. The fresh interpreter was Python 3.13.16, compared with historical Python 3.12.13; the complete historical numerical environment is unavailable. Thresholding, seed-derived crop bounds and medoid selection can amplify small intermediate differences, but none has been established as the cause here. See the [public verification record](docs/gpu-verification.json) for the measured environment, hashes and comparison details.
+
+The fresh run therefore fails `--check-reference` as designed after writing its complete output. This is not a bit-for-bit historical reproduction or a fresh measurement of the historical 0.39 leaderboard score.
+
 ## Run from pretrained weights
 
 Use Python 3.12 and two CUDA GPUs. The historical run used **two Tesla T4 GPUs**, Python 3.12.13, PyTorch 2.10.0+cu128 and Ultralytics 8.4.103. Each of those three versions is attested in the recovered baseline log. The V23 metadata also records the immutable Kaggle container digest in [provenance/environment.json](provenance/environment.json).
 
-The full historical package freeze was not saved. [requirements.txt](requirements.txt) supplies exact direct pins for a declared Python 3.12 porting target. Its other numerical-library versions are selected target versions, rather than asserted historical observations. The nine target package versions and torchvision/PyTorch compatibility were checked against primary package metadata. A complete installation and full GPU numerical replay remain to be verified for this release.
+The full historical package freeze was not saved. [requirements.txt](requirements.txt) supplies exact direct pins for a declared Python 3.12 porting target. Its other numerical-library versions are selected target versions, rather than asserted historical observations. The nine target package versions and torchvision/PyTorch compatibility were checked against primary package metadata. The fresh GPU verification installed all nine direct pins and completed inference under Python 3.13.16; its output differs from the historical reference, as detailed above. The earlier preparation records in `provenance/` predate this verification.
 
 ```bash
 python3.12 -m venv .venv
@@ -85,4 +95,4 @@ python -m unittest discover -s tests -v
 python scripts/verify_models.py
 ```
 
-The second command strictly loads every checkpoint and checks synthetic refiner output shapes. It is supplied for the target environment and was not executed on the local preparation host, which has no PyTorch installation. A fresh end-to-end GPU result is currently pending; checkpoint recovery and algorithm tests alone do not establish numerical reproduction of the historical score.
+The second command strictly loads every checkpoint and checks synthetic refiner output shapes. It passed in the fresh Kaggle GPU run for all ten supplied checkpoints. Full image inference also completed; the final historical-hash check failed because of the measured mask differences documented above. No fresh leaderboard score is claimed.
