@@ -80,7 +80,7 @@
   "interpretation": {
     "cause_isolated": false,
     "established": "The mismatch includes actual mask pixels. Counts, identifier order and instance correspondence are preserved. Most changed masks differ by one pixel, with four larger differences of 21, 65, 90 and 331 pixels.",
-    "runtime_evidence": "The fresh run used Python 3.13.16; the historical log records Python 3.12.13. A complete historical numerical-library freeze was not recovered.",
+    "runtime_evidence": "The fresh run used Python 3.13.16; the recovered historical baseline log records Python 3.12.13. A complete historical V23 numerical-library freeze was not recovered.",
     "geometry_evidence": "The configured V23 crop sizes, context and minimum crop were preserved. The four largest differences are not explained by a uniform integer translation within two pixels.",
     "unproven_mechanisms": "Floating-point or preprocessing changes can affect thresholds, seed-derived crop bounds, medoid selection and overlap cleanup. Historical intermediate seeds, logits, crop bounds and selected medoid folds are unavailable; no specific mechanism has been established.",
     "claims_not_made": [
