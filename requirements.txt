@@ -1,0 +1,14 @@
+# Inference target for Python 3.12.13. See provenance/environment.json.
+# Torch and Ultralytics are attested in the original training log.
+# The remaining numerical-library pins are a declared porting target, not a
+# recovered full freeze of the historical Kaggle image. A GPU rerun is required.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.10.0+cu128
+torchvision==0.25.0+cu128
+ultralytics==8.4.103
+ultralytics-thop==2.0.18
+numpy==2.2.6
+pandas==2.2.3
+opencv-python==4.12.0.88
+scipy==1.15.3
+pycocotools==2.0.11

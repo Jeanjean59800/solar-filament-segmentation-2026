@@ -1,0 +1,17 @@
+test_checkpoint_manifest_contains_final_fold_assignment (test_pipeline.PipelineInvariantTests.test_checkpoint_manifest_contains_final_fold_assignment) ... ok
+test_coco_compressed_rle_round_trip (test_pipeline.PipelineInvariantTests.test_coco_compressed_rle_round_trip) ... /home/ubuntu/kaggle/.analysis-venv/lib/python3.14/site-packages/pycocotools/mask.py:91: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+  return _mask.decode([rleObjs])[:,:,0]
+ok
+test_low_support_fallback_is_recorded (test_pipeline.PipelineInvariantTests.test_low_support_fallback_is_recorded) ... ok
+test_resolved_instances_do_not_overlap (test_pipeline.PipelineInvariantTests.test_resolved_instances_do_not_overlap) ... ok
+test_same_fold_duplicates_do_not_inflate_support (test_pipeline.PipelineInvariantTests.test_same_fold_duplicates_do_not_inflate_support) ... ok
+test_seed_selection_preserves_low_confidence_second_pass (test_pipeline.PipelineInvariantTests.test_seed_selection_preserves_low_confidence_second_pass) ... ok
+test_three_fold_medoid_is_an_input_mask (test_pipeline.PipelineInvariantTests.test_three_fold_medoid_is_an_input_mask) ... ok
+test_v3_expected_quality_filter (test_pipeline.PipelineInvariantTests.test_v3_expected_quality_filter) ... ok
+test_every_extracted_definition_matches_the_executed_source (test_pipeline.SourceFidelityTests.test_every_extracted_definition_matches_the_executed_source) ... ok
+test_no_training_functions_in_inference_module (test_pipeline.SourceFidelityTests.test_no_training_functions_in_inference_module) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.156s
+
+OK

@@ -1,0 +1,16 @@
+{
+  "variant": "hybrid012_s3_medoid",
+  "historical_submission_filename": "submission_hybrid012_s3_medoid.csv",
+  "historical_submission_sha256": "58b3a7c52c239d309189537636e5b0f76b1a8c2dc67d72bb6eb0338eb18677a1",
+  "historical_submission_ref": 55607242,
+  "historical_public_leaderboard_score": 0.39,
+  "public_score_provenance": "Kaggle submission history recovered by the final-report workflow; rounded public score, not a private score or fresh model evaluation",
+  "images": 180,
+  "instances": 1173,
+  "consensus_fallback_images": 1,
+  "historical_strict_oof_reference_pq": 0.43520179088181965,
+  "oof_source": "historical-v23-report.json strict_oof_reference.hybrid012_s3_medoid",
+  "oof_replayed_for_release": false,
+  "historical_csv_redistributed": false,
+  "fresh_full_inference_reproduction": "pending"
+}

@@ -1,0 +1,10 @@
+{
+  "checkpoint_hashes": "passed: all 10 checkpoint SHA256 and byte lengths match weights/manifest.json",
+  "source_fidelity_and_algorithm_tests": "passed: 10 unittest tests; see light-tests.txt",
+  "python_and_notebook_compilation": "passed: all Python sources and all notebook code cells",
+  "credential_value_scan": "passed: no configured Kaggle credential value in text files",
+  "strict_model_load_and_synthetic_shapes": "provided in scripts/verify_models.py; not run on preparation host",
+  "full_gpu_inference": "pending",
+  "historical_oof_replay": "not performed",
+  "requirements_installation": "not validated locally: resolver attempted a large NCCL wheel download and hit local disk quota; the dry-run process ended without installing packages"
+}

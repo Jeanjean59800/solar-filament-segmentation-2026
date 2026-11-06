@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+outputs/
+# Official data and user credentials must stay outside this repository.
+data/
+kaggle.json
+access_token
+.env

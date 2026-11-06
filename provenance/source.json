@@ -1,0 +1,22 @@
+{
+  "recovered_at_utc": "2026-11-06",
+  "method": "Kaggle official CLI kernels pull/output; selected checkpoint patterns only",
+  "source_kernel": "jeanjean111/filament-v23-hybrid-sweep",
+  "source_url": "https://www.kaggle.com/code/jeanjean111/filament-v23-hybrid-sweep",
+  "source_kernel_id": 131180453,
+  "source_file": "source-notebooks/filament-v23-hybrid-sweep.py",
+  "source_sha256": "6e31b5259199662ed6228568e0d4d52a33a5ec27704cdfeaeb0a2ce6b31bb242",
+  "historical_docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "historical_accelerator": "two Tesla T4 GPUs",
+  "weight_sources": [
+    "jeanjean111/filament-baseline-ektarr",
+    "jeanjean111/filament-proposal-refiner-v2",
+    "jeanjean111/filament-proposal-v3-full-resume"
+  ],
+  "baseline_attribution_urls": [
+    "https://www.kaggle.com/code/ektarr/new-metric-solar-filament",
+    "https://www.kaggle.com/code/ektarr/yolo-u-net-solar-filament-segmentation"
+  ],
+  "redistributed_official_images_or_annotations": false,
+  "cached_predictions_used_for_inference": false
+}

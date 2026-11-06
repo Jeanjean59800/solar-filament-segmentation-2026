@@ -1,0 +1,95 @@
+{
+  "variant": "hybrid012_s3_medoid",
+  "files": [
+    {
+      "path": "detector_fold0.pt",
+      "role": "YOLO11s segmentation detector",
+      "fold": 0,
+      "bytes": 20591972,
+      "sha256": "6d82387805e401f7506caa839439d101c909bae71915534c713e150153ac93c7",
+      "kaggle_kernel": "jeanjean111/filament-baseline-ektarr",
+      "kernel_output_path": "solar_filament_pq/models/fold_0/detector.pt"
+    },
+    {
+      "path": "refiner_v3_fold0.pt",
+      "role": "proposal refiner V3",
+      "fold": 0,
+      "bytes": 57700355,
+      "sha256": "57501df07dcce796c71e1c2ba72b39135f9e2bef4b6b621eaf8dcff6b8867d50",
+      "kaggle_kernel": "jeanjean111/filament-proposal-v3-full-resume",
+      "kernel_output_path": "proposal_refiner_v3_full/models/fold_0/proposal_refiner_v3.pt"
+    },
+    {
+      "path": "detector_fold1.pt",
+      "role": "YOLO11s segmentation detector",
+      "fold": 1,
+      "bytes": 20591972,
+      "sha256": "ac13ac190f745ad601f96a0795b8fb5914d4018b9977f1d00442d3b00d188341",
+      "kaggle_kernel": "jeanjean111/filament-baseline-ektarr",
+      "kernel_output_path": "solar_filament_pq/models/fold_1/detector.pt"
+    },
+    {
+      "path": "refiner_v3_fold1.pt",
+      "role": "proposal refiner V3",
+      "fold": 1,
+      "bytes": 57700355,
+      "sha256": "d6197b21b2db9b4591df513cf11c30f4be9e0794f969d06d904159514b80629a",
+      "kaggle_kernel": "jeanjean111/filament-proposal-v3-full-resume",
+      "kernel_output_path": "proposal_refiner_v3_full/models/fold_1/proposal_refiner_v3.pt"
+    },
+    {
+      "path": "detector_fold2.pt",
+      "role": "YOLO11s segmentation detector",
+      "fold": 2,
+      "bytes": 20591972,
+      "sha256": "2a911f78f192109cbf224448c22bb331d9f73f233b263867f0dd2db3004033ae",
+      "kaggle_kernel": "jeanjean111/filament-baseline-ektarr",
+      "kernel_output_path": "solar_filament_pq/models/fold_2/detector.pt"
+    },
+    {
+      "path": "refiner_v3_fold2.pt",
+      "role": "proposal refiner V3",
+      "fold": 2,
+      "bytes": 57700355,
+      "sha256": "154dc6a2e8ac32aec4b456140e6584191c6b8702656513c6f8eceeeb745da658",
+      "kaggle_kernel": "jeanjean111/filament-proposal-v3-full-resume",
+      "kernel_output_path": "proposal_refiner_v3_full/models/fold_2/proposal_refiner_v3.pt"
+    },
+    {
+      "path": "detector_fold3.pt",
+      "role": "YOLO11s segmentation detector",
+      "fold": 3,
+      "bytes": 20591972,
+      "sha256": "c7797168af0262f0e5369fcff2c7f397f4f06ba4d4f54f3c06a49d28e713a22d",
+      "kaggle_kernel": "jeanjean111/filament-baseline-ektarr",
+      "kernel_output_path": "solar_filament_pq/models/fold_3/detector.pt"
+    },
+    {
+      "path": "refiner_v2_fold3.pt",
+      "role": "proposal refiner V2",
+      "fold": 3,
+      "bytes": 57319563,
+      "sha256": "b87c666fc2cb66a88d3959fcfe0bf917048401377e8609228e5a9209d6eeca1e",
+      "kaggle_kernel": "jeanjean111/filament-proposal-refiner-v2",
+      "kernel_output_path": "proposal_refiner_v2/models/fold_3/proposal_refiner_v2.pt"
+    },
+    {
+      "path": "detector_fold4.pt",
+      "role": "YOLO11s segmentation detector",
+      "fold": 4,
+      "bytes": 20591972,
+      "sha256": "67b76561940c8e5e07998a69cfab664e4daa466e899a00f57ed39d458f24aa25",
+      "kaggle_kernel": "jeanjean111/filament-baseline-ektarr",
+      "kernel_output_path": "solar_filament_pq/models/fold_4/detector.pt"
+    },
+    {
+      "path": "refiner_v2_fold4.pt",
+      "role": "proposal refiner V2",
+      "fold": 4,
+      "bytes": 57319563,
+      "sha256": "52487f19bee93f78f8e646eb1ded34b4f1434a32554124a0758ee26a33ee97af",
+      "kaggle_kernel": "jeanjean111/filament-proposal-refiner-v2",
+      "kernel_output_path": "proposal_refiner_v2/models/fold_4/proposal_refiner_v2.pt"
+    }
+  ]
+}

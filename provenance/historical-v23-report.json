@@ -1,0 +1,59 @@
+{
+  "status": "four_candidates_ready",
+  "architectures": {
+    "hybrid012": "V3 folds 0-2 and V2 folds 3-4",
+    "v3all": "V3 folds 0-4"
+  },
+  "strict_oof_reference": {
+    "v2_all_s3_medoid": 0.4311884919628038,
+    "hybrid012_s3_medoid": 0.43520179088181965,
+    "v3_all_s3_medoid": 0.4343910743782759
+  },
+  "settings": {
+    "v2": {
+      "quality_threshold": 0.5,
+      "mask_threshold": 0.5
+    },
+    "v3": {
+      "existence_threshold": 0.55,
+      "score_threshold": 0.3,
+      "mask_threshold": 0.5
+    }
+  },
+  "variants": {
+    "hybrid012_s3_medoid": {
+      "path": "/kaggle/working/proposal_v23_hybrid_sweep/submission_hybrid012_s3_medoid.csv",
+      "sha256": "58b3a7c52c239d309189537636e5b0f76b1a8c2dc67d72bb6eb0338eb18677a1",
+      "rows": 1173,
+      "images": 180,
+      "mean_instances": 6.516666666666667,
+      "fallback_images": 1
+    },
+    "hybrid012_s3_majority": {
+      "path": "/kaggle/working/proposal_v23_hybrid_sweep/submission_hybrid012_s3_majority.csv",
+      "sha256": "0a5b0f67ad094e3ff0edf4d87e7baff8c10b707a77ba1a7d9d3ca036c93f5da1",
+      "rows": 1174,
+      "images": 180,
+      "mean_instances": 6.522222222222222,
+      "fallback_images": 1
+    },
+    "v3all_s3_medoid": {
+      "path": "/kaggle/working/proposal_v23_hybrid_sweep/submission_v3all_s3_medoid.csv",
+      "sha256": "ab3d192ff7c1ca996935c0a24203163dc91a69e5a42d84df363f707ce3567dcd",
+      "rows": 1115,
+      "images": 180,
+      "mean_instances": 6.194444444444445,
+      "fallback_images": 1
+    },
+    "v3all_s3_majority": {
+      "path": "/kaggle/working/proposal_v23_hybrid_sweep/submission_v3all_s3_majority.csv",
+      "sha256": "5b16dab8dc6fb915250e1432352d890af1bc1756a42fc6c9f56861deb928a6b4",
+      "rows": 1116,
+      "images": 180,
+      "mean_instances": 6.2,
+      "fallback_images": 1
+    }
+  },
+  "runtime_hours": 1.4199046004561109,
+  "submitted": false
+}

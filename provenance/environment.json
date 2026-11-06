@@ -1,0 +1,21 @@
+{
+  "historical_observed_versions": {
+    "python": "3.12.13",
+    "torch": "2.10.0+cu128",
+    "ultralytics": "8.4.103"
+  },
+  "historical_runtime_banner": "Ultralytics 8.4.103 \ud83d\ude80 Python-3.12.13 torch-2.10.0+cu128 CUDA:0 (Tesla T4, 14912MiB)",
+  "historical_banner_source": "Kaggle output filament-baseline-ektarr.log, first Ultralytics banner",
+  "historical_baseline_log_sha256": "fc3295a7bd7fe50a9d87d9ab002b4cfd1291d3f4e0d1b5a23318de9f6ed0ed3e",
+  "historical_v23_docker_image": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "historical_full_freeze_available": false,
+  "requirements_status": "Exact direct pins for a declared Python 3.12 porting target. Only versions explicitly marked observed are recovered historical versions. Full GPU inference has not yet been replayed for this release.",
+  "target_torchvision_compatibility": "torchvision 0.25.0 package metadata requires torch==2.10.0; see pypi-target-metadata.json",
+  "light_test_environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "pycocotools": "2.0.11"
+  },
+  "gpu_verification_status": "pending"
+}
