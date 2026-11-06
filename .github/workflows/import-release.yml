@@ -1,0 +1,85 @@
+name: Import verified V23 release
+on:
+  push:
+    branches: [main]
+    paths: [provenance/staged-release.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download and verify the frozen public package
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, io, json, pathlib, shutil, stat, tempfile, urllib.request, zipfile
+          root = pathlib.Path.cwd()
+          cfg = json.loads((root/'provenance/staged-release.json').read_text())
+          prefix = 'https://www.kaggle.com/api/v1/datasets/download/jeanjean111/filament-v23-final-release?datasetVersionNumber='
+          if not cfg['url'].startswith(prefix):
+              raise RuntimeError('Unexpected public artifact origin')
+          def digest(path):
+              with path.open('rb') as f: return hashlib.file_digest(f, 'sha256').hexdigest()
+          with tempfile.TemporaryDirectory() as directory:
+              tmp = pathlib.Path(directory)
+              archive = tmp/'download.zip'
+              with urllib.request.urlopen(cfg['url'], timeout=180) as response, archive.open('wb') as target:
+                  if response.status != 200: raise RuntimeError('Download failed')
+                  shutil.copyfileobj(response, target)
+              if digest(archive) != cfg['download_sha256']:
+                  raise RuntimeError('Public download hash changed')
+              with zipfile.ZipFile(archive) as outer:
+                  name = cfg['bundle_filename']
+                  if outer.namelist().count(name) != 1:
+                      raise RuntimeError('Frozen bundle missing or ambiguous')
+                  with outer.open(name) as source, (tmp/'release.zip').open('wb') as target:
+                      shutil.copyfileobj(source, target)
+              bundle = tmp/'release.zip'
+              if digest(bundle) != cfg['bundle_sha256']:
+                  raise RuntimeError('Release bundle hash changed')
+              with zipfile.ZipFile(bundle) as release:
+                  manifest_name = 'provenance/package-manifest.json'
+                  manifest = json.loads(release.read(manifest_name))
+                  expected = {entry['path']: entry for entry in manifest['files']}
+                  names = release.namelist()
+                  if len(names) != len(set(names)) or set(names) != set(expected)|{manifest_name}:
+                      raise RuntimeError('Unlisted or duplicate release members')
+                  for name in names:
+                      path = pathlib.PurePosixPath(name)
+                      info = release.getinfo(name)
+                      if path.is_absolute() or '..' in path.parts or '.git' in path.parts or '.github' in path.parts:
+                          raise RuntimeError('Unsafe release path')
+                      if stat.S_ISLNK(info.external_attr >> 16): raise RuntimeError('Unexpected symlink')
+                      destination = tmp/'verified'/name
+                      destination.parent.mkdir(parents=True, exist_ok=True)
+                      with release.open(name) as source, destination.open('wb') as target:
+                          shutil.copyfileobj(source, target)
+                      if name in expected:
+                          item = expected[name]
+                          if destination.stat().st_size != item['bytes'] or digest(destination) != item['sha256']:
+                              raise RuntimeError('File integrity failure: '+name)
+                  model_manifest = json.loads((tmp/'verified/weights/manifest.json').read_text())
+                  if len(model_manifest['files']) != 10: raise RuntimeError('Expected ten checkpoints')
+                  for item in model_manifest['files']:
+                      path = tmp/'verified/weights'/item['path']
+                      if path.stat().st_size != item['bytes'] or digest(path) != item['sha256']:
+                          raise RuntimeError('Checkpoint mismatch')
+                  for name in names:
+                      target = root/name
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      shutil.copy2(tmp/'verified'/name, target)
+          print('Verified and materialized all release files and ten checkpoints')
+          PY
+      - name: Publish complete source and weights in this repository
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publish complete V23 inference, notebook, report and ten verified checkpoints'
+          git push origin HEAD:main
