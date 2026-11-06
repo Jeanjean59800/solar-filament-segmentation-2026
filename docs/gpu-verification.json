@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "verification_date_utc": "2026-11-06",
+  "status": "pretrained_inference_completed_historical_reference_hash_mismatch",
+  "historical_reference": {
+    "variant": "hybrid012_s3_medoid",
+    "csv_sha256": "58b3a7c52c239d309189537636e5b0f76b1a8c2dc67d72bb6eb0338eb18677a1",
+    "public_leaderboard_score": 0.39,
+    "score_role": "historical rounded public score; no fresh submission or score",
+    "reference_csv_redistributed": false
+  },
+  "fresh_gpu_run": {
+    "cuda_devices": [
+      "Tesla T4",
+      "Tesla T4"
+    ],
+    "environment": {
+      "torch": "2.10.0+cu128",
+      "torchvision": "0.25.0+cu128",
+      "ultralytics": "8.4.103",
+      "ultralytics-thop": "2.0.18",
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "opencv-python": "4.12.0.88",
+      "scipy": "1.15.3",
+      "pycocotools": "2.0.11"
+    },
+    "python": "3.13.16",
+    "all_nine_direct_package_pins_installed": true,
+    "strict_checkpoint_load_and_synthetic_shapes": "passed for all ten checkpoints",
+    "checkpoint_count": 10,
+    "images": 180,
+    "instances": 1173,
+    "consensus_fallback_images": 1,
+    "inference_runtime_seconds": 2092.85773511,
+    "csv_sha256": "5db0a2f4cf3d07c438b83ef4de7ffa5547a862a891a0ac0ef908ab9f493e4b75",
+    "matches_historical_csv_sha256": false,
+    "reference_check_exit": "nonzero after successful image inference because --check-reference detected the mismatch",
+    "source_sha256": {
+      "inference.py": "29875988d6a09e57c10f780f245cdeb7672d23ff0aa1c29657132645ca5390d8",
+      "pipeline.py": "65434d2e8f6772f45a15415bc2883f8ee2fa0bec4668e13afc60f0262cf2c7de",
+      "weights/manifest.json": "3b7f87f8d950e5407f64986f17596888c5121759586d4357dc38379ac8789da9"
+    },
+    "training_performed": false,
+    "leaderboard_submitted": false
+  },
+  "csv_and_instance_checks": {
+    "same_identifier_set": true,
+    "same_identifier_order": true,
+    "same_instance_count_for_every_image": true,
+    "line_endings": "both LF, neither UTF-8 BOM",
+    "format_and_row_order_normalization_explains_mismatch": false,
+    "comparison_method": "Per-image Hungarian matching on COCO RLE mask IoU at 2048 by 2048 native resolution",
+    "matched_instance_id_permutations": 0
+  },
+  "mask_comparison": {
+    "identical_masks": 1104,
+    "changed_masks": 69,
+    "changed_images": 56,
+    "changed_mask_xor_pixel_count_total": 577,
+    "changed_mask_xor_histogram": {
+      "1": 61,
+      "2": 3,
+      "3": 1,
+      "21": 1,
+      "65": 1,
+      "90": 1,
+      "331": 1
+    },
+    "changed_mask_xor_pixel_count_median": 1.0,
+    "changed_mask_xor_pixel_count_max": 331,
+    "mean_iou": 0.9997654819353723,
+    "minimum_iou": 0.8631100082712986,
+    "pixel_micro_iou": 0.9997533284626036,
+    "historical_total_instance_area": 2338861,
+    "reproduction_total_instance_area": 2338848,
+    "foreground_union_symmetric_difference_pixels": 535,
+    "pixels_reassigned_between_instances": 21
+  },
+  "interpretation": {
+    "cause_isolated": false,
+    "established": "The mismatch includes actual mask pixels. Counts, identifier order and instance correspondence are preserved. Most changed masks differ by one pixel, with four larger differences of 21, 65, 90 and 331 pixels.",
+    "runtime_evidence": "The fresh run used Python 3.13.16; the historical log records Python 3.12.13. A complete historical numerical-library freeze was not recovered.",
+    "geometry_evidence": "The configured V23 crop sizes, context and minimum crop were preserved. The four largest differences are not explained by a uniform integer translation within two pixels.",
+    "unproven_mechanisms": "Floating-point or preprocessing changes can affect thresholds, seed-derived crop bounds, medoid selection and overlap cleanup. Historical intermediate seeds, logits, crop bounds and selected medoid folds are unavailable; no specific mechanism has been established.",
+    "claims_not_made": [
+      "bit-for-bit historical reproduction",
+      "a fresh leaderboard score",
+      "a proven specific numerical or geometric cause"
+    ]
+  },
+  "artifact_policy": {
+    "official_images_or_annotations_included": false,
+    "prediction_csv_included": false,
+    "historical_reference_hash_changed": false
+  }
+}
