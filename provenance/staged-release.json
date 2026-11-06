@@ -1,0 +1,14 @@
+{
+  "bundle_filename": "filament_v23_repository.bundle",
+  "bundle_sha256": "cbece7e0526b054988b38a49b715353661a25e0db579c35d4d33c6e64788842c",
+  "bundle_bytes": 393604516,
+  "files": 34,
+  "dataset": "jeanjean111/filament-v23-final-release",
+  "dataset_version": 1,
+  "url": "https://www.kaggle.com/api/v1/datasets/download/jeanjean111/filament-v23-final-release?datasetVersionNumber=1",
+  "download_sha256": "cc23f8cfaeb74a0b73bf78820a484df653ce7b216b26cd08232cf94aba144ef8",
+  "download_bytes": 363457756,
+  "anonymous_download_verified": true,
+  "two_downloads_identical": true,
+  "package_files_verified": 34
+}
